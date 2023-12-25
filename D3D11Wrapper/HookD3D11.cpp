@@ -1,5 +1,5 @@
 #include "HookD3D11.hpp"
-
+#pragma warning(suppress : 6387)
 HRESULT __stdcall D3D11Wrapper::HookD3D11::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags) {
 	if (!init)
 	{
@@ -14,7 +14,6 @@ HRESULT __stdcall D3D11Wrapper::HookD3D11::hkPresent(IDXGISwapChain* pSwapChain,
 			pDevice->CreateRenderTargetView(pBackBuffer, NULL, &mainRenderTargetView); //False Positive Warning DirectX 11 SDK
 			pBackBuffer->Release();
 			oWndProc = (WNDPROC)SetWindowLongPtr(window, GWLP_WNDPROC, (LONG_PTR)WndProc);
-			//InitImGui();
 			init = true;
 		}
 		else
