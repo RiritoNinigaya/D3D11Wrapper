@@ -17,11 +17,11 @@ HRESULT __stdcall D3D11Wrapper::HookD3D11::hkPresent(IDXGISwapChain* pSwapChain,
 			init = true;
 		}
 		else
-			return oPresent(pSwapChain, SyncInterval, Flags);
+			return D3D11Wrapper::oPresent(pSwapChain, SyncInterval, Flags); //Any Case, Returning Original Present Function(or Hooking)
 		/*
 		You're Internal IMGUI Menu Src Code
 		*/
-		return oPresent(pSwapChain, SyncInterval, Flags);
+		return D3D11Wrapper::oPresent(pSwapChain, SyncInterval, Flags);
 	}
 }
 	
