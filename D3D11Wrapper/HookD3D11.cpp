@@ -14,6 +14,9 @@ HRESULT __stdcall D3D11Wrapper::HookD3D11::hkPresent(IDXGISwapChain* pSwapChain,
 			pDevice->CreateRenderTargetView(pBackBuffer, NULL, &mainRenderTargetView); //False Positive Warning DirectX 11 SDK
 			pBackBuffer->Release();
 			oWndProc = (WNDPROC)SetWindowLongPtr(window, GWLP_WNDPROC, (LONG_PTR)WndProc);
+			/*
+   			Please Hook IMGUI Menu Function... Thanks!!! :3
+      			*/
 			init = true;
 		}
 		else
